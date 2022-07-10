@@ -11,33 +11,34 @@ interface Task {
 interface TaskItemProps {
     task: Task;
     onRemoveTask: (taskId:number) => void;
+    onCompleteTask: (taskId:number) => void;
 }
 
-export function TaskItem({ task, onRemoveTask }: TaskItemProps) {  
+export function TaskItem({ task, onRemoveTask, onCompleteTask }: TaskItemProps) {  
 
     function handleRemoveTask() {
         onRemoveTask(task.id);
     }
 
     function handleCompleteTask() {
-        
+        onCompleteTask(task.id);
     }
 
     return (
-        <div className={styles.taskItem}> 
-                  
+        <div className={styles.taskItem}>              
             <button 
-                className={styles.checkBox}
+                className={task.isComplete ? styles.checkedBox : styles.uncheckedBox}                   
                 onClick={handleCompleteTask}
-            >                
-                {/* <Check size={15}/> */}
+            >    
+                {task.isComplete ? <Check size={15}/> : ''}            
+                
             </button>
 
-            <p>{task.content}</p>            
+            <p className={task.isComplete ? styles.taskCompleted : ''}>{task.content}</p>            
             
             <button className={styles.btnDelete} onClick={handleRemoveTask}>
                 <Trash size={20}/>
-            </button>
+            </button>            
         </div>
     )
 }

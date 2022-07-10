@@ -23,12 +23,16 @@ export function App(){
         setTasks(tasksWithoutOne);
     }
 
+    function completeTask(taskId: number) {
+        setTasks(tasks.map(task => task.id === taskId ? { ...task, isComplete: !task.isComplete } : task));
+    }
+
     return (
         <>
             <Header />
             <div className={styles.wrapper}>
                 <NewTask onAddTask={addTask}/>
-                <TaskList taskList={tasks} onRemoveTask={removeTask}/>
+                <TaskList taskList={tasks} onRemoveTask={removeTask} onCompleteTask={completeTask}/>
             </div>
         </>
     )

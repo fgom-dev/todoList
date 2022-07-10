@@ -16,12 +16,7 @@
     margin-top: .75rem;
 }
 
-/* .checkMoreText {
-    display: flex;
-    align-items: flex-start;
-} */
-
-.checkBox {   
+.uncheckedBox {   
     margin-top: .2rem;
     margin-right: .954rem;
 
@@ -33,10 +28,28 @@
     cursor: pointer;
 }
 
+.checkedBox {   
+    margin-top: .2rem;
+    margin-right: .954rem;
+    color: var(--white);
+
+    background: var(--purple);
+    border: 1px solid var(--purple);
+    border-radius: 50%;
+    min-width: 1.090625rem;
+    height: 1.090625rem;
+    cursor: pointer;
+}
+
 .taskItem p {
     font-size: .875rem;
     display: inline;
     margin-right: auto;
+    max-width: 40rem;
+}
+
+.taskCompleted {
+    text-decoration: line-through;
 }
 
 .btnDelete {

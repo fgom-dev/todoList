@@ -12,9 +12,10 @@ interface Task {
 interface TaskListProps {
     taskList: Task[];
     onRemoveTask: (taskId:number) => void;
+    onCompleteTask: (taskId:number) => void;
 }
 
-export function TaskList({ taskList, onRemoveTask }: TaskListProps) {
+export function TaskList({ taskList, onRemoveTask, onCompleteTask }: TaskListProps) {
     return (
 
         <div className={styles.taskList}>
@@ -26,15 +27,13 @@ export function TaskList({ taskList, onRemoveTask }: TaskListProps) {
 
                 <div className={styles.tasksCompleted}>
                     <strong>Concluídas</strong>
-                    <span>0</span>
+                    <span>{taskList.filter(task => task.isComplete === true).length} {taskList.length > 0 ? 'de'  + taskList.length : ''}</span>
                 </div>
             </header>
 
             {taskList.map(task => (
-                <TaskItem task={task} onRemoveTask={onRemoveTask}/>
-            ))}
-
-            
+                <TaskItem key={task.id} task={task} onRemoveTask={onRemoveTask} onCompleteTask={onCompleteTask}/>
+            ))}            
 
             <div className={taskList.length === 0 ? styles.contentEmpty : styles.contentWithTasks}>
                 <img src={clipboard} alt="" />
