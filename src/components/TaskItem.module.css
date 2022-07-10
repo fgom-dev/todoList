@@ -1,0 +1,47 @@
+.taskItem {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding: 1.2rem;
+
+    background: var(--gray-500);
+
+    border: 1px solid var(--gray-400);
+    border-radius: 8px;
+    /* box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06); */
+}
+
+.taskItem + .taskItem {
+    margin-top: .75rem;
+}
+
+/* .checkMoreText {
+    display: flex;
+    align-items: flex-start;
+} */
+
+.checkBox {   
+    margin-top: .2rem;
+    margin-right: .954rem;
+
+    background: transparent;
+    border: 1px solid var(--blue);
+    border-radius: 50%;
+    min-width: 1.090625rem;
+    height: 1.090625rem;
+    cursor: pointer;
+}
+
+.taskItem p {
+    font-size: .875rem;
+    display: inline;
+    margin-right: auto;
+}
+
+.btnDelete {
+    background: transparent;
+    border: none;
+    color: var(--gray-300);
+    cursor: pointer;
+}
